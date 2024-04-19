@@ -25,4 +25,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . -t fc2.0-ci-go:latest
+      run: |
+      cd go
+      docker build . -t fc2.0-ci-go:latest
