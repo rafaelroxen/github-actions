@@ -15,8 +15,12 @@ jobs:
       - uses: actions/setup-go@v2
         with:
           go-version: ${{ matrix.go }}
-      - run: go test
-      - run: go run math.go
+      - run: |
+          cd go
+          go test
+      - run: |
+          cd go
+          go run math.go
 
   build:
 
@@ -26,5 +30,5 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: |
-      cd go
-      docker build . -t fc2.0-ci-go:latest
+        cd go
+        docker build . -t fc2.0-ci-go:latest
